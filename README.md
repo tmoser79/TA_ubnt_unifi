@@ -39,8 +39,6 @@ Bracket action codes in `[ZONE_PAIR-ACTION-RULEID]` are normalized via `lookups/
 
 EP may set `action` or `vendor_action` at ingest. The TA derives `vendor_action` from `_raw` when missing, applies the lookup with `OUTPUTNEW` (preserving an existing `action`), and falls back to `unknown` when no match is found.
 
-For CIM Network Traffic, use `cim_action` (`allowed` vs `blocked`).
-
 ## Example searches
 
 ```spl

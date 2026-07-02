@@ -26,7 +26,7 @@ Jun 26 22:23:10 ri-fw01 ri-fw01 [LAN_WAN-A-2147483647] DESCR="[LAN_WAN]Allow All
 
 ### TA normalized fields
 
-`src`, `dest`, `src_port`, `dest_port`, `transport`, `ingress_interface`, `egress_interface`, `rule_description`, `action`, `cim_action`, `vendor_product`
+`src`, `dest`, `src_port`, `dest_port`, `transport`, `ingress_interface`, `egress_interface`, `rule_description`, `action`, `vendor_product`
 
 ### CIM
 
