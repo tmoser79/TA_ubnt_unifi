@@ -22,7 +22,7 @@ Jun 26 22:23:10 ri-fw01 ri-fw01 [LAN_WAN-A-2147483647] DESCR="[LAN_WAN]Allow All
 
 ### EP fields (expected)
 
-`SRC`, `DST`, `PROTO`, `SPT`, `DPT`, `IN`, `OUT`, `DESCR`, `action_code`, `action`, `zone_pair`, `rule_id`
+`SRC`, `DST`, `PROTO`, `SPT`, `DPT`, `IN`, `OUT`, `DESCR`, `vendor_action`, `action`, `zone_pair`, `rule_id`
 
 ### TA normalized fields
 

@@ -1,6 +1,6 @@
-action_code,action
+vendor_action,action
 A,allowed
 D,dropped
 R,rejected
 B,blocked
-RET,allowed_return
+RET,allowed

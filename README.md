@@ -29,15 +29,15 @@ See [README/sourcetypes.md](README/sourcetypes.md) for field references and exam
 
 Bracket action codes in `[ZONE_PAIR-ACTION-RULEID]` are normalized via `lookups/unifi_firewall_action_map.csv`:
 
-| `action_code` | `action` |
+| `vendor_action` | `action` |
 |---------------|----------|
 | `A` | `allowed` |
 | `D` | `dropped` |
 | `R` | `rejected` |
 | `B` | `blocked` |
-| `RET` | `allowed_return` |
+| `RET` | `allowed` |
 
-EP may set `action` or `action_code` at ingest. The TA derives `action_code` from `_raw` when missing, applies the lookup with `OUTPUTNEW` (preserving an existing `action`), and falls back to `unknown` when no match is found.
+EP may set `action` or `vendor_action` at ingest. The TA derives `vendor_action` from `_raw` when missing, applies the lookup with `OUTPUTNEW` (preserving an existing `action`), and falls back to `unknown` when no match is found.
 
 For CIM Network Traffic, use `cim_action` (`allowed` vs `blocked`).
 
