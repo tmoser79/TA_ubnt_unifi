@@ -1,0 +1,6 @@
+action_code,action
+A,allowed
+D,dropped
+R,rejected
+B,blocked
+RET,allowed_return

@@ -27,7 +27,7 @@ See [README/sourcetypes.md](README/sourcetypes.md) for field references and exam
 
 ## Firewall action mapping
 
-Bracket action codes in `[ZONE_PAIR-ACTION-RULEID]` normalize to:
+Bracket action codes in `[ZONE_PAIR-ACTION-RULEID]` are normalized via `lookups/unifi_firewall_action_map.csv`:
 
 | `action_code` | `action` |
 |---------------|----------|
@@ -37,7 +37,7 @@ Bracket action codes in `[ZONE_PAIR-ACTION-RULEID]` normalize to:
 | `B` | `blocked` |
 | `RET` | `allowed_return` |
 
-EP should set `action` at ingest using this mapping. The TA falls back to `_raw` parsing when `action` or `action_code` is missing.
+EP may set `action` or `action_code` at ingest. The TA derives `action_code` from `_raw` when missing, applies the lookup with `OUTPUTNEW` (preserving an existing `action`), and falls back to `unknown` when no match is found.
 
 For CIM Network Traffic, use `cim_action` (`allowed` vs `blocked`).
 
