@@ -29,15 +29,15 @@ See [README/sourcetypes.md](README/sourcetypes.md) for field references and exam
 
 Bracket action codes in `[ZONE_PAIR-ACTION-RULEID]` are normalized via `lookups/unifi_firewall_action_map.csv`:
 
-| `vendor_action` | `action` |
-|---------------|----------|
-| `A` | `allowed` |
-| `D` | `dropped` |
-| `R` | `rejected` |
-| `B` | `blocked` |
-| `RET` | `allowed` |
+| `vendor_action_id` | `vendor_action` | `action` (CIM) |
+|--------------------|-----------------|----------------|
+| `A` | `allowed` | `allowed` |
+| `D` | `dropped` | `blocked` |
+| `R` | `rejected` | `blocked` |
+| `B` | `blocked` | `blocked` |
+| `RET` | `allowed` | `allowed` |
 
-EP may set `action` or `vendor_action` at ingest. The TA derives `vendor_action` from `_raw` when missing, applies the lookup with `OUTPUTNEW` (preserving an existing `action`), and falls back to `unknown` when no match is found.
+EP may set `vendor_action_id`, `vendor_action`, or `action` at ingest. The TA derives `vendor_action_id` from `_raw` when missing, applies the lookup with `OUTPUTNEW` (preserving existing `vendor_action` and `action`), and falls back to `unknown` for `action` when no match is found.
 
 ## Example searches
 

@@ -1,6 +1,6 @@
-vendor_action,action
-A,allowed
-D,dropped
-R,rejected
-B,blocked
-RET,allowed
+vendor_action_id,vendor_action,action
+A,allowed,allowed
+D,dropped,blocked
+R,rejected,blocked
+B,blocked,blocked
+RET,allowed,allowed

@@ -17,20 +17,20 @@ Jun 26 22:23:10 ri-fw01 ri-fw01 [LAN_WAN-A-2147483647] DESCR="[LAN_WAN]Allow All
 | Part | Example | Meaning |
 |------|---------|---------|
 | Zone pair | `LAN_WAN`, `LAN_LOCAL` | Traffic zone transition |
-| Action code | `A`, `D`, `R`, `B`, `RET` | Policy decision |
+| Action code | `A`, `D`, `R`, `B`, `RET` | Policy decision (`vendor_action_id`) |
 | Rule ID | `2147483647` | Rule number (`INT_MAX` = default catch-all) |
 
 ### EP fields (expected)
 
-`SRC`, `DST`, `PROTO`, `SPT`, `DPT`, `IN`, `OUT`, `DESCR`, `vendor_action`, `action`, `zone_pair`, `rule_id`
+`SRC`, `DST`, `PROTO`, `SPT`, `DPT`, `IN`, `OUT`, `DESCR`, `vendor_action_id`, `zone_pair`, `rule_id`
 
 ### TA normalized fields
 
-`src`, `dest`, `src_port`, `dest_port`, `transport`, `ingress_interface`, `egress_interface`, `rule_description`, `action`, `vendor_product`
+`src`, `dest`, `src_port`, `dest_port`, `transport`, `ingress_interface`, `egress_interface`, `rule_description`, `vendor_action_id`, `vendor_action`, `action`, `vendor_product`
 
 ### CIM
 
-Event type `ubnt_unifi_gw_firewall` is tagged for **Network Traffic** (`network`).
+Event type `ubnt_unifi_gw_firewall` is tagged for **Network Traffic** (`network`). The `action` field uses CIM values (`allowed`, `blocked`); use `vendor_action` for UniFi-specific granularity.
 
 ---
 
