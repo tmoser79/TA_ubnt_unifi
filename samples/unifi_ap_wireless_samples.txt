@@ -1,0 +1,5 @@
+Jun 26 22:24:51 ri-ap02 802aa813c2ad,UAP-AC-Lite-6.8.2+15592: mcad: mcad[1837]: wireless_agg_stats.log_sta_anomalies(): bssid=80:2a:a8:15:c2:ad radio=wifi1 vap=wifi1ap3 sta=d4:8d:26:8f:06:a0 satisfaction_now=73 anomalies=tcp_latency
+Jun 26 22:21:25 ri-ap01 b4fbe473c6f5,UAP-AC-Lite-6.8.2+15592: stahtd: stahtd[1758]: [STA-TRACKER].stahtd_dump_event(): {"message_type":"STA_ASSOC_TRACKER","mac":"0a:33:2a:4f:f6:54","vap":"wifi1ap3","event_type":"dns timeout","assoc_status":"0","query_2":"239.56.239.216.in-addr.arpa.","query_server_2":"208.67.220.220"}
+Jun 26 22:21:25 ri-ap01 b4fbe473c6f5,UAP-AC-Lite-6.8.2+15592: kernel: [501385.791358] [STA_TRACKER] DNS request timed out; [STA: 0a:33:2a:4f:f6:54][QUERY: 239.56.239.216.in-addr.arpa.] [DNS_SERVER :208.67.220.220] [TXN_ID be7a] [SRCPORT 62596]
+Jun 26 22:05:59 ri-ap01 b4fbe473c6f5,UAP-AC-Lite-6.8.2+15592: kernel: [500460.554741] HSM: scan: transition FOREIGN_CHANNEL => IDLE
+Jun 26 22:05:54 ri-ap01 b4fbe473c6f5,UAP-AC-Lite-6.8.2+15592: syswrapper[11860]: Trigger rrm scan(3): sleep 5;iwpriv wifi0ap0 acsrrm 1; sleep 1;
