@@ -20,13 +20,30 @@ Jun 26 22:23:10 ri-fw01 ri-fw01 [LAN_WAN-A-2147483647] DESCR="[LAN_WAN]Allow All
 | Action code | `A`, `D`, `R`, `B`, `RET` | Policy decision (`vendor_action_id`) |
 | Rule ID | `2147483647` | Rule number (`INT_MAX` = default catch-all) |
 
+### MAC field (L2 header)
+
+Forwarded traffic includes a 14-octet Ethernet header in `MAC`:
+
+```
+MAC=9c:05:d6:65:39:06:0a:33:2a:4f:f6:54:08:00
+     |--- src_mac ---| |--- dest_mac ---| |type|
+```
+
+| Field | Example | Meaning |
+|-------|---------|---------|
+| `src_mac` | `9c:05:d6:65:39:06` | Source MAC (6 octets) |
+| `dest_mac` | `0a:33:2a:4f:f6:54` | Destination MAC (6 octets) |
+| `ether_type` | `08:00` | EtherType (`0x0800` = IPv4) |
+
+Some `LAN_LOCAL` events use `MAC` for raw packet bytes instead of an Ethernet header.
+
 ### EP fields (expected)
 
 `SRC`, `DST`, `PROTO`, `SPT`, `DPT`, `IN`, `OUT`, `DESCR`, `vendor_action_id`, `zone_pair`, `rule_id`
 
 ### TA normalized fields
 
-`src`, `dest`, `src_port`, `dest_port`, `transport`, `ingress_interface`, `egress_interface`, `rule_description`, `vendor_action_id`, `vendor_action`, `action`, `vendor_product`
+`src`, `dest`, `src_port`, `dest_port`, `transport`, `ingress_interface`, `egress_interface`, `rule_description`, `vendor_action_id`, `vendor_action`, `action`, `src_mac`, `dest_mac`, `ether_type`, `vendor_product`
 
 ### CIM
 
