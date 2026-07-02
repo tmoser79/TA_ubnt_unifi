@@ -43,7 +43,7 @@ Some `LAN_LOCAL` events use `MAC` for raw packet bytes instead of an Ethernet he
 
 ### TA normalized fields
 
-`src`, `dest`, `src_port`, `dest_port`, `transport`, `ingress_interface`, `egress_interface`, `rule_description`, `vendor_action_id`, `vendor_action`, `action`, `src_mac`, `dest_mac`, `ether_type`, `vendor_product`
+`src`, `dest`, `src_port`, `dest_port`, `transport`, `ingress_interface`, `egress_interface`, `rule_description`, `vendor_action_id`, `vendor_action`, `action`, `src_mac`, `dest_mac`, `ether_type`, `vendor`, `product`
 
 ### CIM
 
@@ -85,7 +85,7 @@ Wireless: `bssid`, `radio`, `vap`, `sta`/`mac`, `satisfaction_now`, `anomalies`,
 
 ### TA normalized fields
 
-`client_mac`, `query`, `dns_server`, `satisfaction`, `vendor_product`
+`client_mac`, `query`, `dns_server`, `satisfaction`, `vendor`, `product`
 
 ### CIM
 
