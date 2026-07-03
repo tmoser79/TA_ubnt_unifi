@@ -4,11 +4,19 @@
 
 UniFi gateway **netfilter/iptables-style** syslog. Key=value fields after a rule bracket.
 
-### Sample event
+### Sample events
 
+**Allow (LAN → WAN):**
 ```
 Jun 26 22:23:10 ri-fw01 ri-fw01 [LAN_WAN-A-2147483647] DESCR="[LAN_WAN]Allow All Traffic" IN=br0 OUT=eth10 MAC=9c:05:d6:65:39:06:0a:33:2a:4f:f6:54:08:00 SRC=192.168.1.118 DST=208.67.222.222 LEN=224 TOS=00 PREC=0x00 TTL=63 ID=57225 PROTO=UDP SPT=51133 DPT=443 LEN=204 MARK=1a0000
 ```
+
+**Deny (WAN → LOCAL):**
+```
+Jul  3 11:04:24 ri-fw01 ri-fw01 [WAN_LOCAL-D-2147483647] DESCR="[WAN_LOCAL]Block All Traffic" IN=eth10 OUT= MAC=ff:ff:ff:ff:ff:ff:b4:fb:e4:67:ff:4b:08:00 SRC=192.168.4.1 DST=255.255.255.255 LEN=212 TOS=00 PREC=0x00 TTL=64 ID=0 DF PROTO=UDP SPT=56672 DPT=10002 LEN=192 MARK=1a0000
+```
+
+Normalized: `vendor_action_id=D`, `vendor_action=dropped`, `action=blocked`, `zone_pair=WAN_LOCAL`
 
 ### Rule bracket
 
@@ -16,8 +24,8 @@ Jun 26 22:23:10 ri-fw01 ri-fw01 [LAN_WAN-A-2147483647] DESCR="[LAN_WAN]Allow All
 
 | Part | Example | Meaning |
 |------|---------|---------|
-| Zone pair | `LAN_WAN`, `LAN_LOCAL` | Traffic zone transition |
-| Action code | `A`, `D`, `R`, `B`, `RET` | Policy decision (`vendor_action_id`) |
+| Zone pair | `LAN_WAN`, `LAN_LOCAL`, `WAN_LOCAL` | Traffic zone transition |
+| Action code | `A`, `D`, `R`, `B`, `RET` | Policy decision (`vendor_action_id`); `D` confirmed on deny samples |
 | Rule ID | `2147483647` | Rule number (`INT_MAX` = default catch-all) |
 
 ### MAC field (L2 header)
@@ -43,7 +51,7 @@ Some `LAN_LOCAL` events use `MAC` for raw packet bytes instead of an Ethernet he
 
 ### TA normalized fields
 
-`src`, `dest`, `src_port`, `dest_port`, `transport`, `ingress_interface`, `egress_interface`, `rule_description`, `vendor_action_id`, `vendor_action`, `action`, `src_mac`, `dest_mac`, `ether_type`, `vendor`, `product`
+`src`, `dest`, `src_port`, `dest_port`, `transport`, `ingress_interface`, `egress_interface`, `rule_description`, `vendor_action_id`, `vendor_action`, `action`, `src_mac`, `dest_mac`, `ether_type`, `vendor`, `product`, `dvc`
 
 ### CIM
 
